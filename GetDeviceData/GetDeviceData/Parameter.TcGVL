@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="Parameter" Id="{45938ee2-c814-47c6-928c-f40125e2ba09}" ParameterList="True">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL CONSTANT
+  MaxDevicesSearchCount : UINT := 200;
+  MaxDeviceToBeFound : UINT := 10;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
