@@ -5,7 +5,7 @@ This small library acts as a sample project to show how to read Ethercat-Master 
 It references ZCore library from Zeugwerk Framework. This can be easily installed via [Twinpack](https://github.com/Zeugwerk/Twinpack) library Package Manager.
 
 ## Usage
-- instantiate function block
+- instantiate `GetDeviceData` function block
 - call `Cyclic()` method on every PLC cycle
 - start reading by calling method `DeviceNamesAsync('');`, leave AmsNetId empty to read from a local PLC
 - Fetch result from VAR_INPUT arrays of the object
