@@ -17,9 +17,8 @@ END_VAR]]></Declaration>
       <ST><![CDATA[]]></ST>
     </Implementation>
     <Method Name="Cyclic" Id="{2267b843-f919-45ab-a87e-d7470b57bd04}">
-      <Declaration><![CDATA[(* This method must be implemented by any
- function block that implements [IUnmanagedObjects](xref:ZCore.IUnmanagedObject). The method must be called from
- the creator of the object, it is not automatically taken care of from the framework.*)
+      <Declaration><![CDATA[/// The cyclic method should be run in any PLC-cycle. If the object has no work to do, we will simply
+/// RETURN here. If an action has been started, this cyclic method takes care of all the work to do.
 METHOD Cyclic
 VAR_INST
   itIndex : UINT;
@@ -126,9 +125,12 @@ END_CASE]]></ST>
       </Implementation>
     </Method>
     <Method Name="DeviceNamesAsync" Id="{13141ac0-b5ae-431f-95b4-bf53b0233b7e}">
-      <Declaration><![CDATA[METHOD DeviceNamesAsync
+      <Declaration><![CDATA[/// Starts reading of all available Ethercat-Master Device names
+/// Just wait until Busy property of this object returns FALSE -> then fetch all Ethercat Master names from
+/// the Array in VAR_INPUT of this object
+METHOD DeviceNamesAsync
 VAR_INPUT
-  amsNetId : Tc2_System.T_AmsNetID;
+  amsNetId : Tc2_System.T_AmsNetID; //< AMS-Netid of the IPC on which the device names should be fetched
 END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[SetBusy(TRUE);
@@ -137,7 +139,9 @@ _step.SetNext(GetDeviceDataSteps.Begin);]]></ST>
       </Implementation>
     </Method>
     <Property Name="EthercatMasterCount" Id="{1d505375-1582-4f78-a165-b684fe281a6d}">
-      <Declaration><![CDATA[PROPERTY EthercatMasterCount : UINT]]></Declaration>
+      <Declaration><![CDATA[/// Returns the actual found Ethercat Master count -> Needed to iterate through the VAR_INPUT Arrays of AMSNet-IDs and
+/// Ethercat Master Device names.
+PROPERTY EthercatMasterCount : UINT]]></Declaration>
       <Get Name="Get" Id="{de855259-9a12-43d0-803f-73205d170aaf}">
         <Declaration><![CDATA[VAR
 END_VAR
@@ -148,7 +152,8 @@ END_VAR
       </Get>
     </Property>
     <Method Name="FB_init" Id="{755219fb-0948-4ab3-9f08-dc3591e71935}">
-      <Declaration><![CDATA[METHOD FB_init : BOOL
+      <Declaration><![CDATA[/// Sets the object to Idle-State becuse no booting phase is needed here!
+METHOD FB_init : BOOL
 VAR_INPUT
 	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
 	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
@@ -156,27 +161,6 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[SetIdle();]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="NextAmsNetId" Id="{1ff2f3dc-7063-41af-8123-50cf0ed0e824}">
-      <Declaration><![CDATA[METHOD NextAmsNetId : Tc2_System.T_AmsNetID
-VAR_INST
-  count : UINT;
-END_VAR
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[NextAmsNetId := NetIdArray[count];
-count := count + 1;]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="NextDeviceName" Id="{a5843e6a-434c-48ef-8f95-17c40493f7dc}">
-      <Declaration><![CDATA[METHOD NextDeviceName : ZCore.ZString;
-VAR_INST
-  count : UINT;
-END_VAR]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[NextDeviceName := NameArray[count];
-count := count + 1;]]></ST>
       </Implementation>
     </Method>
   </POU>
