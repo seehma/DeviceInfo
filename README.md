@@ -30,7 +30,7 @@ CASE Step.Index OF
     THEN 
       Start := FALSE;
       Step.SetNext(10);
-		END_IF
+    END_IF
     
   10:
     IF Step.OnEntry()
