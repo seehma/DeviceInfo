@@ -32,8 +32,11 @@ END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[CASE _step.Index OF
   GetDeviceDataSteps.Begin:
-    _ethercatMasterCount := 0;
-    _step.SetNext(GetDeviceDataSteps.FetchDeviceTypes);
+    IF Busy
+    THEN
+      _ethercatMasterCount := 0;
+      _step.SetNext(GetDeviceDataSteps.FetchDeviceTypes);
+    END_IF
   
   GetDeviceDataSteps.FetchDeviceTypes:
     IF _step.OnEntry()
@@ -87,7 +90,6 @@ END_VAR]]></Declaration>
       THEN
         _step.SetNext(GetDeviceDataSteps.GetDeviceNames);
       ELSE
-        SetBusy(FALSE);
         _step.SetNext(GetDeviceDataSteps.ResetId2);
       END_IF
     END_IF

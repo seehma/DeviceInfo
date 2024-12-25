@@ -86,6 +86,11 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="GetDeviceData.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
