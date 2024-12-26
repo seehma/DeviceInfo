@@ -10,6 +10,8 @@ It references ZCore library from Zeugwerk Framework. This can be easily installe
 - start reading by calling method `DeviceNamesAsync('');`, leave AmsNetId empty to read from a local PLC
 - Fetch result from VAR_INPUT arrays of the object
 
+![usage](https://github.com/user-attachments/assets/eb3b6470-6a88-4e3b-8897-e00ad5ea82f0)
+
 ## Example
 ```st
 PROGRAM MAIN
