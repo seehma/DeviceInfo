@@ -34,6 +34,7 @@ END_VAR]]></Declaration>
   DeviceInfoSteps.Begin:
     IF Busy
     THEN
+      ResetMem();
       _ethercatMasterCount := 0;
       _step.SetNext(DeviceInfoSteps.FetchDeviceTypes);
     END_IF
@@ -163,6 +164,20 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[SetIdle();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ResetMem" Id="{ba2b5e99-106e-4ec9-9a66-90cf17d95491}">
+      <Declaration><![CDATA[METHOD PRIVATE ResetMem
+VAR
+  count : UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR count:=0 TO Parameter.MaxDeviceToBeFound BY 1 DO
+  NameArray[count] := '';
+  DeviceIdArray[count] := 0;
+  NetIdArray[count] := '';
+END_FOR]]></ST>
       </Implementation>
     </Method>
   </POU>

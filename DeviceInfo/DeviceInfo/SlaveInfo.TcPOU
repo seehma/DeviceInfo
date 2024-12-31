@@ -31,6 +31,7 @@ END_VAR]]></Declaration>
   SlaveInfoSteps.Begin:
     IF Busy
     THEN
+      ResetMem();
       _ethercatSlavesCount := 0;
       boxAddrIterator := 1001;
       _step.SetNext(DeviceInfoSteps.FetchDeviceTypes);
@@ -91,11 +92,27 @@ END_VAR
         <ST><![CDATA[SetIdle();]]></ST>
       </Implementation>
     </Method>
+    <Method Name="ResetMem" Id="{14068f3c-6c30-4ee0-bd52-c6cc122f0393}">
+      <Declaration><![CDATA[METHOD PRIVATE ResetMem
+VAR
+  count : UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR count:=0 TO Parameter.MaxSlavesToBeFound BY 1 DO
+  NameArray[count] := '';
+  PortArray[count] := 0;
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="SlaveNamesAsync" Id="{7ee5b1a5-6fdd-4f01-ac89-bdf7c7c39c57}">
-      <Declaration><![CDATA[METHOD SlaveNamesAsync
+      <Declaration><![CDATA[/// Starts reading of all available Ethercat-Slave Box names for a given DeviceId/Ethercat-Master
+/// Just wait until Busy property of this object returns FALSE (or the object is DONE=TRUE) -> then fetch all Ethercat Slave names from
+/// the Array in VAR_INPUT of this object
+METHOD SlaveNamesAsync
 VAR_INPUT
-  amsNetId : Tc2_System.T_AmsNetID; //< AMS-Netid of the IPC on which the device names should be fetched
-  deviceId : UDINT;
+  amsNetId : Tc2_System.T_AmsNetID; //< AMS-Netid of the IPC on which the Ethercat-Slave names should be fetched from a given Master DeviceID
+  deviceId : UDINT; //< DeviceID of a Ethercat-Master from which all Ethercat-Slave names should be fetched
 END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[SetBusy(TRUE);

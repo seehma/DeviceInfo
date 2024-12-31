@@ -17,7 +17,7 @@
     <LibraryReferences>{20170c6e-9af9-4b3f-b178-ec3cf9233492}</LibraryReferences>
     <Released>false</Released>
     <Title>DeviceInfo</Title>
-    <ProjectVersion>1.0.0.0</ProjectVersion>
+    <ProjectVersion>1.0.1.0</ProjectVersion>
     <Author>Matthias Seehauser</Author>
     <DefaultNamespace>DeviceInfo</DefaultNamespace>
     <Company>SeehmaTec</Company>
