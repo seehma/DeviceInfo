@@ -10,13 +10,14 @@ It references ZCore library from Zeugwerk Framework. This can be easily installe
 - start reading by calling method `DeviceNamesAsync('');`, leave AmsNetId empty to read from a local PLC
 - Fetch result from VAR_INPUT arrays of the object
 
-![usage](https://github.com/user-attachments/assets/eb3b6470-6a88-4e3b-8897-e00ad5ea82f0)
+![deviceinfo](https://github.com/user-attachments/assets/e65c1735-6ff5-40d3-92db-5523b9fee53a)
 
 ## Example
 ```st
 PROGRAM MAIN
 VAR
-  GetDeviceData : GetDeviceData.GetDeviceData;
+  DeviceInfo : DeviceInfo.DeviceInfo;
+  SlaveInfo : DeviceInfo.SlaveInfo;
   Step : ZCore.Step(0, 50);
   Start : BOOL;
   EcatMasterCount : UINT;
@@ -24,7 +25,8 @@ VAR
   EcatAmsNetId : Tc2_System.T_AmsNetID;
 END_VAR
 ----------------------------------
-GetDeviceData.Cyclic();
+DeviceInfo.Cyclic();
+SlaveInfo.Cyclic();
 
 CASE Step.Index OF
   0:
@@ -32,21 +34,32 @@ CASE Step.Index OF
     THEN 
       Start := FALSE;
       Step.SetNext(10);
-    END_IF
+		END_IF
     
   10:
     IF Step.OnEntry()
     THEN
-      GetDeviceData.DeviceNamesAsync('');
+      DeviceInfo.DeviceNamesAsync('');
     END_IF
 
-    IF GetDeviceData.Done 
+    IF DeviceInfo.Done 
     THEN
-      EcatMasterCount := GetDeviceData.EthercatMasterCount;
-      EcatName := GetDeviceData.NameArray[0];
-      EcatAmsNetId := GetDeviceData.NetIdArray[0];
-      Step.SetNext(0);
+      EcatMasterCount := DeviceInfo.EthercatMasterCount;
+      EcatName := DeviceInfo.NameArray[0];
+      EcatAmsNetId := DeviceInfo.NetIdArray[0];
+      Step.SetNext(20);
     END_IF  
+    
+  20:
+    IF Step.OnEntry()
+    THEN
+      SlaveInfo.SlaveNamesAsync('', DeviceInfo.DeviceIdArray[0]);
+    END_IF
+    
+    IF SlaveInfo.Done
+    THEN
+      Step.SetNext(0);
+		END_IF
     
 END_CASE
 ```
