@@ -20,7 +20,7 @@
     <ProjectVersion>1.0.0.0</ProjectVersion>
     <Author>Matthias Seehauser</Author>
     <DefaultNamespace>DeviceInfo</DefaultNamespace>
-    <Company>Zeugwerk GmbH</Company>
+    <Company>SeehmaTec</Company>
   </PropertyGroup>
   <ItemGroup>
     <PlaceholderReference Include="Tc2_IoFunctions">
