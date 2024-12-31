@@ -6,8 +6,8 @@
       "name": "DeviceInfo",
       "plcs": [
         {
-          "version": "1.0.0.0",
-          "distributor-name": "SeehmaTec",
+          "version": "1.0.2.0",
+          "distributor-name": "seehmatix",
           "name": "DeviceInfo",
           "title": "DeviceInfo",
           "type": "FrameworkLibrary",
