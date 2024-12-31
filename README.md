@@ -39,7 +39,7 @@ CASE _step.Index OF
   10:
     IF _step.OnEntry()
     THEN
-      _deviceInfo.DeviceNamesAsync('');
+      _deviceInfo.ReadDeviceNamesAsync('');
     END_IF
 
     IF _deviceInfo.Done 
@@ -53,7 +53,7 @@ CASE _step.Index OF
   20:
     IF _step.OnEntry()
     THEN
-      _slaveInfo.SlaveNamesAsync('', _deviceInfo.DeviceIdArray[0]);
+      _slaveInfo.ReadSlaveNamesAsync('', _deviceInfo.DeviceIdArray[0]);
     END_IF
     
     IF _slaveInfo.Done
