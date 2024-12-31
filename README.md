@@ -16,50 +16,53 @@ It references ZCore library from Zeugwerk Framework. This can be easily installe
 ```st
 PROGRAM MAIN
 VAR
-  DeviceInfo : DeviceInfo.DeviceInfo;
-  SlaveInfo : DeviceInfo.SlaveInfo;
-  Step : ZCore.Step(0, 50);
-  Start : BOOL;
-  EcatMasterCount : UINT;
-  EcatName : ZCore.ZString;
-  EcatAmsNetId : Tc2_System.T_AmsNetID;
+  _deviceInfo : DeviceInfo.DeviceInfo;
+  _slaveInfo : DeviceInfo.SlaveInfo;
+  _step : ZCore.Step(0, 50);
+  _start : BOOL;
+  _ecatMasterCount : UINT;
+  _ecatName : ZCore.ZString;
+  _ecatAmsNetId : Tc2_System.T_AmsNetID;
 END_VAR
 ----------------------------------
-DeviceInfo.Cyclic();
-SlaveInfo.Cyclic();
+_deviceInfo.Cyclic();
+_slaveInfo.Cyclic();
 
-CASE Step.Index OF
+CASE _step.Index OF
   0:
-    IF Start 
+    IF _start 
     THEN 
-      Start := FALSE;
-      Step.SetNext(10);
+      _start := FALSE;
+      _step.SetNext(10);
     END_IF
     
   10:
-    IF Step.OnEntry()
+    IF _step.OnEntry()
     THEN
-      DeviceInfo.DeviceNamesAsync('');
+      _deviceInfo.DeviceNamesAsync('');
     END_IF
 
-    IF DeviceInfo.Done 
+    IF _deviceInfo.Done 
     THEN
-      EcatMasterCount := DeviceInfo.EthercatMasterCount;
-      EcatName := DeviceInfo.NameArray[0];
-      EcatAmsNetId := DeviceInfo.NetIdArray[0];
-      Step.SetNext(20);
+      _ecatMasterCount := _deviceInfo.EthercatMasterCount;
+      _ecatName := _deviceInfo.NameArray[0];
+      _ecatAmsNetId := _deviceInfo.NetIdArray[0];
+      _step.SetNext(20);
     END_IF  
     
   20:
-    IF Step.OnEntry()
+    IF _step.OnEntry()
     THEN
-      SlaveInfo.SlaveNamesAsync('', DeviceInfo.DeviceIdArray[0]);
+      _slaveInfo.SlaveNamesAsync('', _deviceInfo.DeviceIdArray[0]);
     END_IF
     
-    IF SlaveInfo.Done
+    IF _slaveInfo.Done
     THEN
-      Step.SetNext(0);
+      _step.SetNext(0);
     END_IF
+    
+END_CASE
+```
     
 END_CASE
 ```
