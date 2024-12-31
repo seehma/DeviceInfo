@@ -34,7 +34,7 @@ CASE Step.Index OF
     THEN 
       Start := FALSE;
       Step.SetNext(10);
-		END_IF
+    END_IF
     
   10:
     IF Step.OnEntry()
@@ -59,7 +59,7 @@ CASE Step.Index OF
     IF SlaveInfo.Done
     THEN
       Step.SetNext(0);
-		END_IF
+    END_IF
     
 END_CASE
 ```
