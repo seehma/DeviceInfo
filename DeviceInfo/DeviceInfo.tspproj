@@ -2,7 +2,7 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.56">
 	<Project ProjectGUID="{E7988087-0570-45B4-BAF8-DC59FB4719C4}" Target64Bit="true" ShowHideConfigurations="#x6">
 		<Plc>
-			<Project File="GetDeviceData.xti"/>
+			<Project File="DeviceInfo.xti"/>
 		</Plc>
 	</Project>
 </TcSmProject>

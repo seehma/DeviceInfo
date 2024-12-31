@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="SlaveInfo" Id="{f9a75740-3459-4292-8895-55d20e4822bc}" SpecialFunc="None">
+    <Declaration><![CDATA[{attribute 'no_explicit_call'}
+{attribute 'conditionalshow_all_locals'}
+FUNCTION_BLOCK SlaveInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
+VAR_OUTPUT
+  NameArray : ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString;
+  PortArray : ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT;
+END_VAR
+VAR
+  _amsNetId : Tc2_System.T_AmsNetID;
+  _deviceId : UDINT;
+  _ethercatSlavesCount : UINT;
+  _step : ZCore.Step(SlaveInfoSteps.Begin, SlaveInfoSteps.End);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Cyclic" Id="{02a09389-1fcc-4334-910c-16177fadcbc9}">
+      <Declaration><![CDATA[METHOD Cyclic
+VAR_INST
+  getBoxNameByAddr : Tc2_IoFunctions.IOF_GetBoxNameByAddr;
+  boxAddrIterator : UINT;
+END_VAR
+VAR CONSTANT
+  FirstSlaveAddr : UINT := 1001;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE _step.Index OF
+  SlaveInfoSteps.Begin:
+    IF Busy
+    THEN
+      _ethercatSlavesCount := 0;
+      boxAddrIterator := 1001;
+      _step.SetNext(DeviceInfoSteps.FetchDeviceTypes);
+    END_IF
+  
+  SlaveInfoSteps.FetchSlaveNames:
+    IF _step.OnEntry()
+    THEN
+      getBoxNameByAddr(START:=FALSE);
+      getBoxNameByAddr(START:=TRUE, NETID:=_amsNetId, DEVICEID:=_deviceId, BOXADDR:=boxAddrIterator, TMOUT:=T#2S);
+    END_IF
+    
+    getBoxNameByAddr(START:=FALSE);
+    IF getBoxNameByAddr.ERR // no valid device found
+    THEN
+      SetBusy(FALSE);
+      _step.SetNext(DeviceInfoSteps.End);
+    ELSIF NOT getBoxNameByAddr.BUSY
+    THEN
+      // first slave starts on address 1001
+      IF boxAddrIterator > (Parameter.MaxSlavesToBeFound + FirstSlaveAddr)
+      THEN
+        Abort('MaxSlavesToBeFound Parameter reached! Consider raising MaxSlavesToBeFound Parameter of library...');
+        _step.SetNext(SlaveInfoSteps.End);
+      ELSE
+        NameArray[boxAddrIterator-FirstSlaveAddr] := getBoxNameByAddr.BOXNAME;
+        PortArray[boxAddrIterator-FirstSlaveAddr] := boxAddrIterator;
+        boxAddrIterator := boxAddrIterator + 1;
+        _step.RepeatStep();
+			END_IF
+    END_IF
+  
+  SlaveInfoSteps.End:
+    RETURN;
+    
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="EthercatSlavesCount" Id="{6b4daf1b-e6db-4af2-b0ac-e4876ec9e391}">
+      <Declaration><![CDATA[PROPERTY EthercatSlavesCount : UINT]]></Declaration>
+      <Get Name="Get" Id="{8b05ccee-6b43-4b30-8162-8ed44bf46214}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="FB_init" Id="{b1add173-2e13-4f02-9e8b-0293094b9539}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetIdle();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SlaveNamesAsync" Id="{7ee5b1a5-6fdd-4f01-ac89-bdf7c7c39c57}">
+      <Declaration><![CDATA[METHOD SlaveNamesAsync
+VAR_INPUT
+  amsNetId : Tc2_System.T_AmsNetID; //< AMS-Netid of the IPC on which the device names should be fetched
+  deviceId : UDINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetBusy(TRUE);
+_deviceId := deviceId;
+_amsNetId := amsNetId;
+_step.SetNext(SlaveInfoSteps.Begin);]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

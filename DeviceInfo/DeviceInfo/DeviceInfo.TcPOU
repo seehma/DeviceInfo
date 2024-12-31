@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="GetDeviceData" Id="{bbbb3437-c728-49f1-b8eb-fac3c161592d}" SpecialFunc="None">
+  <POU Name="DeviceInfo" Id="{bbbb3437-c728-49f1-b8eb-fac3c161592d}" SpecialFunc="None">
     <Declaration><![CDATA[{attribute 'no_explicit_call'}
 {attribute 'conditionalshow_all_locals'}
-FUNCTION_BLOCK GetDeviceData EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
+FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
 VAR_OUTPUT
   NameArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString;
+  DeviceIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT;
   NetIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID;
 END_VAR
 VAR
   _amsNetId : Tc2_System.T_AmsNetID;
   _ethercatMasterCount : UINT;
-  _step : ZCore.Step(GetDeviceDataSteps.Begin, GetDeviceDataSteps.End);
+  _step : ZCore.Step(DeviceInfoSteps.Begin, DeviceInfoSteps.End);
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
@@ -23,7 +24,6 @@ METHOD Cyclic
 VAR_INST
   itIndex : UINT;
   ethercatMasters : UINT;
-  indexArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF UINT;
 
   getDeviceType : Tc2_IoFunctions.IOF_GetDeviceType;
   getDeviceName : Tc2_IoFunctions.IOF_GetDeviceName;
@@ -31,14 +31,14 @@ VAR_INST
 END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[CASE _step.Index OF
-  GetDeviceDataSteps.Begin:
+  DeviceInfoSteps.Begin:
     IF Busy
     THEN
       _ethercatMasterCount := 0;
-      _step.SetNext(GetDeviceDataSteps.FetchDeviceTypes);
+      _step.SetNext(DeviceInfoSteps.FetchDeviceTypes);
     END_IF
   
-  GetDeviceDataSteps.FetchDeviceTypes:
+  DeviceInfoSteps.FetchDeviceTypes:
     IF _step.OnEntry()
     THEN
       getDeviceType(START:=FALSE);
@@ -50,9 +50,9 @@ END_VAR]]></Declaration>
     THEN
       IF ItIndex > Parameter.MaxDevicesSearchCount 
       THEN
-        _step.SetNext(GetDeviceDataSteps.ResetId1);
+        _step.SetNext(DeviceInfoSteps.ResetId1);
       ELSE
-        _step.SetNext(GetDeviceDataSteps.FetchDeviceTypes);
+        _step.SetNext(DeviceInfoSteps.FetchDeviceTypes);
       END_IF
       
       itIndex := itIndex + 1;
@@ -60,22 +60,22 @@ END_VAR]]></Declaration>
     THEN
       IF getDeviceType.IODeviceType = Tc2_IoFunctions.IODEVICETYPE_ETHERCAT
       THEN
-        IndexArray[_ethercatMasterCount] := itIndex;
+        DeviceIdArray[_ethercatMasterCount] := itIndex;
         _ethercatMasterCount := _ethercatMasterCount + 1;
         itIndex := itIndex + 1;
-        _step.SetNext(GetDeviceDataSteps.ResetId1);
+        _step.SetNext(DeviceInfoSteps.ResetId1);
       END_IF
     END_IF
 
-  GetDeviceDataSteps.ResetId1:
+  DeviceInfoSteps.ResetId1:
     itIndex := 0;
-    _step.SetNext(GetDeviceDataSteps.GetDeviceNames);  
+    _step.SetNext(DeviceInfoSteps.GetDeviceNames);  
     
-  GetDeviceDataSteps.GetDeviceNames:
+  DeviceInfoSteps.GetDeviceNames:
     IF _step.OnEntry()
     THEN
       getDeviceName(START:=FALSE);
-      getDeviceName(START:=TRUE, NETID:=_amsNetId, DEVICEID:=IndexArray[ItIndex], TMOUT:=T#2S);
+      getDeviceName(START:=TRUE, NETID:=_amsNetId, DEVICEID:=DeviceIdArray[ItIndex], TMOUT:=T#2S);
     END_IF  
     
     getDeviceName();
@@ -86,23 +86,23 @@ END_VAR]]></Declaration>
     THEN
       NameArray[itIndex] := getDeviceName.DEVICENAME;
       itIndex := itIndex + 1;
-      IF IndexArray[itIndex] <> 0
+      IF DeviceIdArray[itIndex] <> 0
       THEN
-        _step.SetNext(GetDeviceDataSteps.GetDeviceNames);
+        _step.SetNext(DeviceInfoSteps.GetDeviceNames);
       ELSE
-        _step.SetNext(GetDeviceDataSteps.ResetId2);
+        _step.SetNext(DeviceInfoSteps.ResetId2);
       END_IF
     END_IF
     
-  GetDeviceDataSteps.ResetId2:
+  DeviceInfoSteps.ResetId2:
     itIndex := 0;
-    _step.SetNext(GetDeviceDataSteps.GetDeviceNetIds);  
+    _step.SetNext(DeviceInfoSteps.GetDeviceNetIds);  
     
-  GetDeviceDataSteps.GetDeviceNetIds:
+  DeviceInfoSteps.GetDeviceNetIds:
     IF _step.OnEntry()
     THEN
       getDeviceNetIds(START:=FALSE);
-      getDeviceNetIds(START:=TRUE, NETID:=_amsNetId, DEVICEID:=IndexArray[itIndex], TMOUT:=T#2S);
+      getDeviceNetIds(START:=TRUE, NETID:=_amsNetId, DEVICEID:=DeviceIdArray[itIndex], TMOUT:=T#2S);
     END_IF  
     
     getDeviceNetIds();
@@ -113,14 +113,14 @@ END_VAR]]></Declaration>
     THEN
       NetIdArray[itIndex] := getDeviceNetIds.DeviceNetId;
       itIndex := itIndex + 1;
-      IF IndexArray[itIndex] = 0
+      IF DeviceIdArray[itIndex] = 0
       THEN
         SetBusy(FALSE);
-        _step.SetNext(GetDeviceDataSteps.End);
+        _step.SetNext(DeviceInfoSteps.End);
       END_IF
     END_IF      
   
-  GetDeviceDataSteps.End:
+  DeviceInfoSteps.End:
     RETURN;
     
 END_CASE]]></ST>
@@ -137,7 +137,7 @@ END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[SetBusy(TRUE);
 _amsNetId := amsNetId;
-_step.SetNext(GetDeviceDataSteps.Begin);]]></ST>
+_step.SetNext(DeviceInfoSteps.Begin);]]></ST>
       </Implementation>
     </Method>
     <Property Name="EthercatMasterCount" Id="{1d505375-1582-4f78-a165-b684fe281a6d}">

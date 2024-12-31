@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # TcXaeShell Solution File, Format Version 11.00
 VisualStudioVersion = 15.0.34829.251
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{DFBE7525-6864-4E62-8B2E-D530D69D9D96}") = "GetDeviceData", "GetDeviceData\GetDeviceData.tspproj", "{E7988087-0570-45B4-BAF8-DC59FB4719C4}"
+Project("{DFBE7525-6864-4E62-8B2E-D530D69D9D96}") = "DeviceInfo", "DeviceInfo\DeviceInfo.tspproj", "{E7988087-0570-45B4-BAF8-DC59FB4719C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

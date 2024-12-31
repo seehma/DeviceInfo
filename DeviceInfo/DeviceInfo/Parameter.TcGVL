@@ -5,6 +5,7 @@
 VAR_GLOBAL CONSTANT
   MaxDevicesSearchCount : UINT := 200;
   MaxDeviceToBeFound : UINT := 10;
+  MaxSlavesToBeFound : UINT := 200;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

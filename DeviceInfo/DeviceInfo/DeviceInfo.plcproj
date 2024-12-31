@@ -16,10 +16,10 @@
     <Implicit_Jitter_Distribution>{7fa03807-11a4-4f2c-81fc-abc3be89fbb9}</Implicit_Jitter_Distribution>
     <LibraryReferences>{20170c6e-9af9-4b3f-b178-ec3cf9233492}</LibraryReferences>
     <Released>false</Released>
-    <Title>GetDeviceData</Title>
+    <Title>DeviceInfo</Title>
     <ProjectVersion>1.0.0.0</ProjectVersion>
     <Author>Matthias Seehauser</Author>
-    <DefaultNamespace>GetDeviceData</DefaultNamespace>
+    <DefaultNamespace>DeviceInfo</DefaultNamespace>
     <Company>Zeugwerk GmbH</Company>
   </PropertyGroup>
   <ItemGroup>
@@ -75,21 +75,22 @@
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetDeviceData.TcPOU">
+    <Compile Include="DeviceInfo.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GetDeviceDataSteps.TcDUT">
+    <Compile Include="DeviceInfoSteps.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SlaveInfo.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SlaveInfoSteps.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Parameter.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GetDeviceData.tmc">
-      <SubType>Content</SubType>
-    </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

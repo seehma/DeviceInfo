@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <DUT Name="GetDeviceDataSteps" Id="{7e389f72-6520-46e6-89b4-6fcc0f3eacb7}">
+  <DUT Name="SlaveInfoSteps" Id="{07555201-a33a-4800-9dd8-7add35bd2b97}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
-TYPE GetDeviceDataSteps :
-(
+TYPE SlaveInfoSteps :
+(  
 	Begin,
-  FetchDeviceTypes,
-  ResetId1,
-  GetDeviceNames,
-  ResetId2,
-  GetDeviceNetIds,
+  FetchSlaveNames,
   End
 );
 END_TYPE
