@@ -27,7 +27,7 @@
           "packages": [
             {
               "version": "1.6.0.3",
-              "repository": "bot",
+              "repository": "",
               "name": "ZCore",
               "branch": "release/1.6",
               "target": "TC3.1",
@@ -36,7 +36,7 @@
             },
             {
               "version": "1.0.0.0",
-              "repository": "bot",
+              "repository": "",
               "name": "Testbench",
               "branch": "main",
               "target": "TC3.1",
