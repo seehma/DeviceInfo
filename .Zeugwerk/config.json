@@ -1,12 +1,12 @@
 {
   "fileversion": 1,
-  "solution": "DeviceInfo.sln",
+  "solution": "src/DeviceInfo.sln",
   "projects": [
     {
       "name": "DeviceInfo",
       "plcs": [
         {
-          "version": "1.0.2.1",
+          "version": "1.0.2.2",
           "distributor-name": "seehmatix",
           "name": "DeviceInfo",
           "title": "DeviceInfo",
