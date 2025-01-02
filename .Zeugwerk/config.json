@@ -26,51 +26,6 @@
           },
           "packages": [
             {
-              "version": "3.4.4.0",
-              "repository": null,
-              "name": "TwinCAT.XAE.PLC.Lib.Tc2_IoFunctions",
-              "branch": "main",
-              "target": "TC3.1",
-              "configuration": "Release",
-              "distributor-name": "Beckhoff Automation"
-            },
-            {
-              "version": null,
-              "repository": null,
-              "name": "TwinCAT.XAE.PLC.Lib.Tc2_Standard",
-              "branch": "main",
-              "target": "TC3.1",
-              "configuration": "Release",
-              "distributor-name": "Beckhoff Automation"
-            },
-            {
-              "version": null,
-              "repository": null,
-              "name": "TwinCAT.XAE.PLC.Lib.Tc2_System",
-              "branch": "main",
-              "target": "TC3.1",
-              "configuration": "Release",
-              "distributor-name": "Beckhoff Automation"
-            },
-            {
-              "version": null,
-              "repository": null,
-              "name": "TwinCAT.XAE.PLC.Lib.Tc2_Utilities",
-              "branch": "main",
-              "target": "TC3.1",
-              "configuration": "Release",
-              "distributor-name": "Beckhoff Automation"
-            },
-            {
-              "version": null,
-              "repository": null,
-              "name": "TwinCAT.XAE.PLC.Lib.Tc3_Module",
-              "branch": "main",
-              "target": "TC3.1",
-              "configuration": "Release",
-              "distributor-name": "Beckhoff Automation"
-            },
-            {
               "version": "1.6.0.3",
               "repository": "bot",
               "name": "ZCore",
