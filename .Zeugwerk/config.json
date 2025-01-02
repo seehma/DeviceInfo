@@ -33,6 +33,15 @@
               "target": "TC3.1",
               "configuration": "Distribution",
               "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.0.0.0",
+              "repository": "bot",
+              "name": "Testbench",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Release",
+              "distributor-name": "Zeugwerk GmbH"
             }
           ],
           "references": {

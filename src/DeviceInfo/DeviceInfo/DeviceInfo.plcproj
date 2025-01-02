@@ -51,6 +51,11 @@
       <Namespace>Tc3_Module</Namespace>
       <QualifiedOnly>true</QualifiedOnly>
     </PlaceholderReference>
+    <PlaceholderReference Include="Testbench">
+      <DefaultResolution>Testbench, 1.0.0.0 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>Testbench</Namespace>
+      <QualifiedOnly>true</QualifiedOnly>
+    </PlaceholderReference>
     <PlaceholderReference Include="ZCore">
       <DefaultResolution>ZCore, 1.6.0.3 (Zeugwerk GmbH)</DefaultResolution>
       <Namespace>ZCore</Namespace>
@@ -73,6 +78,9 @@
     <PlaceholderResolution Include="Tc3_Module">
       <Resolution>Tc3_Module, * (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
+    <PlaceholderResolution Include="Testbench">
+      <Resolution>Testbench, 1.0.0.0 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
     <PlaceholderResolution Include="ZCore">
       <Resolution>ZCore, 1.6.0.3 (Zeugwerk GmbH)</Resolution>
     </PlaceholderResolution>
@@ -94,11 +102,17 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="Tests\SlaveInfoTest.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DeviceInfo.tmc">
       <SubType>Content</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests" />
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

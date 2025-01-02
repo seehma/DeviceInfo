@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="SlaveInfoTest" Id="{07648f02-c3bb-4b42-8587-c50362c01051}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK SlaveInfoTest EXTENDS SlaveInfo IMPLEMENTS Testbench.IUnitTest]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Test_ReadSlaveNamesAsync_CorrectValuesTaken" Id="{4cc048b3-3e23-43a4-8a8e-3d68cc51dd91}">
+      <Declaration><![CDATA[METHOD Test_ReadSlaveNamesAsync_CorrectValuesTaken
+VAR_INPUT
+  assertions : Testbench.IAssertions;
+END_VAR
+VAR CONSTANT
+  amsNetId : Tc2_System.T_AmsNetID := '5.5.5.5.1.1';
+  deviceId : UDINT := 9;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ReadSlaveNamesAsync(amsNetId:=amsNetId, deviceId:=deviceId);
+
+assertions.EqualsUdint(expected:=deviceId, actual:=_deviceId, 'Check if Device Id was taken correctly');
+assertions.EqualsString(expected:=amsNetId, actual:=_amsNetId, 'Check if Ams Net Id was taken correctly');]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
