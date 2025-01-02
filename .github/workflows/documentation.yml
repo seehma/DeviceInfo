@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.ACTIONS_ZGWK_USERNAME }}
           password: ${{ secrets.ACTIONS_ZGWK_PASSWORD }}
           filepath: "."
-          doc-folder: "docs"
+          doc-folder: "doc"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
