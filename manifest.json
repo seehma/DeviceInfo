@@ -1,0 +1,223 @@
+{
+  "source_base_path": "C:/jenkins/workspace/jobs/doc/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "source_relative_path": "images/add_library_to_references.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/add_library_to_references.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/add_library_to_references_manual.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/add_library_to_references_manual.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/add_library_to_references_manual2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/add_library_to_references_manual2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/login_to_twinpack_repository.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/login_to_twinpack_repository.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/open_library_manager.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/open_library_manager.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/open_twinpack.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/open_twinpack.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/select_library_and_install.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/select_library_and_install.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/DeviceInfo.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/DeviceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/DeviceInfoSteps.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/DeviceInfoSteps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/Parameter.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/Parameter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/SlaveInfo.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/SlaveInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/SlaveInfoSteps.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/SlaveInfoSteps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "reference/DeviceInfo/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/toc.html"
+        },
+        ".json": {
+          "relative_path": "reference/DeviceInfo/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "reference/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/toc.html"
+        },
+        ".json": {
+          "relative_path": "reference/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "userguide/installation.md",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/installation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "userguide/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "userguide/license.md",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/license.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "userguide/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/toc.html"
+        },
+        ".json": {
+          "relative_path": "userguide/toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

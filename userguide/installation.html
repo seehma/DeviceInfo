@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting started | DeviceInfo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting started | DeviceInfo ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/seehma/DeviceInfo/blob/38bab37eb3e5c87de62836b9421c07032f1abf00/doc/userguide/installation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting started</h1>
+
+<p>This guide will get you started with DeviceInfo FBs. Here you will learn how to install the library into you TwinCAT environment and use the library to throughout your projects.</p>
+<h2 id="open-new-project">Open new Project</h2>
+<p>Open TwinCAT XAE Shell and in the dialog, create a new <strong>TwinCAT XAE Project (XML format)</strong>, give the project a proper <strong>Name</strong> and <strong>Location</strong> and click on <strong>Ok</strong> to continue. The next step is to create <strong>PLC</strong> in your TwinCAT project by right-clicking on <strong>PLC</strong> in the <strong>Solution Explorer</strong>. In the contextmenu select <strong>Add new item...</strong>. In the dialog, select <strong>Standard PLC Project</strong>, give it a <strong>Name</strong> and click on <strong>Add</strong>.</p>
+<p>Now lets add the library to this project. You can either install this library via Twinpack or do it manually.</p>
+<h2 id="installation-via-twinpack">Installation via Twinpack</h2>
+<p>This library is published via Twinpack and can therefore be easily installed. If you have never used Twinpack, read through the docs at <a href="https://github.com/Zeugwerk/Twinpack">Twinpack Repo on Github</a> and also on <a href="https://doc.zeugwerk.dev/userguide/twinpack/twinpack_quickstart.html">Zeugwerk Developper Space</a>, download the latest release and install it.</p>
+<p>After installation right click on References and click on <strong>Twinpack Catalog</strong>. Click on Browse and search for DeviceInfo library. Click on it and on the right click on Add. Twinpack will now download the library and add it as reference to your project.</p>
+<div class="gallery">
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/open_twinpack.png" alt="Open Twinpack">
+      <figcaption>TwinCAT XAE Shell</figcaption>
+    </figure>
+  </div>
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/login_to_twinpack_repository.png" alt="Make sure to Login to Twinpack Repository">
+      <figcaption>Login to Twinpack Repository</figcaption>
+    </figure>
+  </div> 
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/add_library_to_references.png" alt="Add DeviceInfo Library to References">
+      <figcaption>Add DeviceInfo Library to References</figcaption>
+    </figure>
+  </div>    
+</div>
+<h2 id="manual-installation">Manual Installation</h2>
+<p>The DeviceInfo library can either be downloaded from Github as a <a href="https://github.com/seehma/DeviceInfo/releases">precompiled library</a>, or you can clone the <a href="https://github.com/seehma/DeviceInfo">repository</a> and compile the library yourself. This guide will focus on the former usecase.</p>
+<p>First, <a href="todo">get the latest release</a> of the library, the download will give you a file called &quot;DeviceInfo_1.0.2.1.compiled-library&quot; on your computer. Start the TwinCAT XAE Shell or the Visual Studio Version you are usually using to develop TwinCAT PLCs. Then, in the menubar, select <strong>PLC</strong> and then <strong>Library Repository...</strong> (see figures below)</p>
+<div class="gallery">
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/open_library_manager.png" alt="Open TwinCAT Library Manager">
+      <figcaption>TwinCAT XAE Shell</figcaption>
+    </figure>
+  </div>
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/select_library_and_install.png" alt="Select Library from Repository and Install it">
+      <figcaption>Select Library from Repository and Install it</figcaption>
+    </figure>
+  </div>  
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/add_library_to_references_manual.png" alt="Add Library to References">
+      <figcaption>Add Library to References</figcaption>
+    </figure>
+  </div>  
+  <div class="gallery-item">
+    <figure>
+      <img src="../images/add_library_to_references_manual2.png" alt="Add Library to References">
+      <figcaption>Add Library to References</figcaption>
+    </figure>
+  </div>    
+</div>
+<p>In the library-repository dialog click on <strong>Install</strong> and navigate to the file compiled-library file and select it. Then, click on <strong>Open</strong> to install the DeviceInfo library into your TwinCAT environment and you are ready to use it.</p>
+<h2 id="plc">PLC</h2>
+<p>To write your first program, which utilizes the DeviceInfo library, replace the content of the <strong>MAIN</strong> program by the following source code.</p>
+<pre><code class="lang-st">// --- Declaration -------------------------------------
+PROGRAM MAIN
+VAR
+  _deviceInfo : DeviceInfo.DeviceInfo;
+  _slaveInfo : DeviceInfo.SlaveInfo;
+  _step : ZCore.Step(0, 50);
+  _start : BOOL;
+  _ecatMasterCount : UINT;
+  _ecatName : ZCore.ZString;
+  _ecatAmsNetId : Tc2_System.T_AmsNetID;
+END_VAR
+// --- Implementation ---------------------------------
+_deviceInfo.Cyclic();
+_slaveInfo.Cyclic();
+
+CASE _step.Index OF
+  0:
+    IF _start 
+    THEN 
+      _start := FALSE;
+      _step.SetNext(10);
+    END_IF
+    
+  10:
+    IF _step.OnEntry()
+    THEN
+      _deviceInfo.ReadDeviceNamesAsync('');
+    END_IF
+
+    IF _deviceInfo.Done 
+    THEN
+      _ecatMasterCount := _deviceInfo.EthercatMasterCount;
+      _ecatName := _deviceInfo.NameArray[0];
+      _ecatAmsNetId := _deviceInfo.NetIdArray[0];
+      _step.SetNext(20);
+    END_IF  
+    
+  20:
+    IF _step.OnEntry()
+    THEN
+      _slaveInfo.ReadSlaveNamesAsync('', _deviceInfo.DeviceIdArray[0]);
+    END_IF
+    
+    IF _slaveInfo.Done
+    THEN
+      _step.SetNext(0);
+    END_IF
+    
+END_CASE
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Compiling the library yourself and as .library instead of .compiled-library will make some internal variables available to you. While this may facilates debugging
+for tinkers , the compiled-library has purposly stripped to the variables and application engineer may find useful.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/seehma/DeviceInfo/blob/38bab37eb3e5c87de62836b9421c07032f1abf00/doc/userguide/installation.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Documentation powered by <a href="https://github.com/Zeugwerk/zkdoc-action">zkdoc</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
