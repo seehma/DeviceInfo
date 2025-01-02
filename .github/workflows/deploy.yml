@@ -1,0 +1,18 @@
+name: Deploy
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+jobs:
+  Deploy:
+    name: Twinpack
+    runs-on: windows-latest
+    steps:
+      - uses: robinraju/release-downloader@v1.8
+        with:
+          latest: true
+          fileName: "*.library"
+      - uses: Zeugwerk/twinpack-action@v0.4.0
+        with:
+          username: ${{ secrets.ACTIONS_ZGWK_USERNAME }}
+          password: ${{ secrets.ACTIONS_ZGWK_PASSWORD }}       
