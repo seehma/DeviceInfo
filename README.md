@@ -63,6 +63,3 @@ CASE _step.Index OF
     
 END_CASE
 ```
-    
-END_CASE
-```
