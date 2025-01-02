@@ -155,7 +155,7 @@ END_VAR
     <Method Name="ReadDeviceNamesAsync" Id="{13141ac0-b5ae-431f-95b4-bf53b0233b7e}">
       <Declaration><![CDATA[/// Starts reading of all available Ethercat-Master Device names
 /// Just wait until Busy property of this object returns FALSE -> then fetch all Ethercat Master names from
-/// the Array in VAR_INPUT of this object
+/// the Array in VAR_OUTPUT of this object
 METHOD ReadDeviceNamesAsync
 VAR_INPUT
   amsNetId : Tc2_System.T_AmsNetID; //< AMS-Netid of the IPC on which the device names should be fetched
@@ -180,26 +180,5 @@ END_VAR
 END_FOR]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="DeviceInfo">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="DeviceInfo.Cyclic">
-      <LineId Id="3" Count="93" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="DeviceInfo.EthercatMasterCount.Get">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="DeviceInfo.FB_init">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="DeviceInfo.ReadDeviceNamesAsync">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="DeviceInfo.ResetMem">
-      <LineId Id="3" Count="3" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
