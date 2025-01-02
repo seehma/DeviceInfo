@@ -67,47 +67,58 @@ First, [get the latest release](todo) of the library, the download will give you
 In the library-repository dialog click on **Install** and navigate to the file compiled-library file and select it. Then, click on **Open** to install the DeviceInfo library into your TwinCAT environment and you are ready to use it.
 
 ## PLC
-Usually you will already have a PLC, but for demonstration purposes we will start from a plain TwinCAT XAE shell. In the menubar click on **File** and then select **New > Project**.
-
-<div class="gallery">
-  <div class="gallery-item">
-    <figure>
-      <img src="../images/installation_twincatxae.png" alt="TwinCAT XAE Shell"/>
-      <figcaption>TwinCAT XAE Shell</figcaption>
-    </figure>
-  </div>
-  <div class="gallery-item">
-    <figure>
-      <img src="../images/installation_project.png" alt="Create Project"/>
-      <figcaption>Create a new project</figcaption>
-    </figure>
-  </div>
-  <div class="gallery-item">
-    <figure>
-      <img src="../images/installation_plc.png" alt="Add a new PLC"/>
-      <figcaption>Add a new PLC</figcaption>
-    </figure>
-  </div>
-  <div class="gallery-item">
-    <figure>
-      <img src="../images/installation_plc2.png" alt="Create Standard PLC project"/>
-      <figcaption>Create a new Standard PLC project</figcaption>
-    </figure>
-  </div>  
-</div>
-
-
 To write your first program, which utilizes the DeviceInfo library, replace the content of the **MAIN** program by the following source code.
 
 ```st
 // --- Declaration -------------------------------------
 PROGRAM MAIN
 VAR
-  tbd
+  _deviceInfo : DeviceInfo.DeviceInfo;
+  _slaveInfo : DeviceInfo.SlaveInfo;
+  _step : ZCore.Step(0, 50);
+  _start : BOOL;
+  _ecatMasterCount : UINT;
+  _ecatName : ZCore.ZString;
+  _ecatAmsNetId : Tc2_System.T_AmsNetID;
 END_VAR
-
 // --- Implementation ---------------------------------
-tbd
+_deviceInfo.Cyclic();
+_slaveInfo.Cyclic();
+
+CASE _step.Index OF
+  0:
+    IF _start 
+    THEN 
+      _start := FALSE;
+      _step.SetNext(10);
+    END_IF
+    
+  10:
+    IF _step.OnEntry()
+    THEN
+      _deviceInfo.ReadDeviceNamesAsync('');
+    END_IF
+
+    IF _deviceInfo.Done 
+    THEN
+      _ecatMasterCount := _deviceInfo.EthercatMasterCount;
+      _ecatName := _deviceInfo.NameArray[0];
+      _ecatAmsNetId := _deviceInfo.NetIdArray[0];
+      _step.SetNext(20);
+    END_IF  
+    
+  20:
+    IF _step.OnEntry()
+    THEN
+      _slaveInfo.ReadSlaveNamesAsync('', _deviceInfo.DeviceIdArray[0]);
+    END_IF
+    
+    IF _slaveInfo.Done
+    THEN
+      _step.SetNext(0);
+    END_IF
+    
+END_CASE
 ```
 
 > [!NOTE]
