@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <PlaceholderResolution Include="Tc2_IoFunctions">
-      <Resolution>Tc2_IoFunctions, 3.4.4.0 (Beckhoff Automation GmbH)</Resolution>
+      <Resolution>Tc2_IoFunctions, * (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_Standard">
       <Resolution>Tc2_Standard, * (Beckhoff Automation GmbH)</Resolution>
