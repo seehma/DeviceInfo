@@ -18,7 +18,7 @@ jobs:
         with:
           username: ${{ secrets.ACTIONS_ZGWK_USERNAME }}
           password: ${{ secrets.ACTIONS_ZGWK_PASSWORD }}
-          filepath: DeviceInfo/DeviceInfo.plcproj
+          filepath: DeviceInfo/DeviceInfo/DeviceInfo.plcproj
           working-directory: "src"
           doc-folder: "../doc"
       - name: Deploy
