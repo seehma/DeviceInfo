@@ -6,7 +6,7 @@
       "name": "DeviceInfo",
       "plcs": [
         {
-          "version": "1.0.2.0",
+          "version": "1.0.2.1",
           "distributor-name": "seehmatix",
           "name": "DeviceInfo",
           "title": "DeviceInfo",
