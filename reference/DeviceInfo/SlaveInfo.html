@@ -87,7 +87,7 @@
     <dl><dt>Namespace</dt><dd><a class="xref" href="SlaveInfo.html">DeviceInfo</a></dd></dl>
   
   </div>
-<dl class="typelist inheritance"><dt>Inheritance</dt><dd>
+<dl class="typelist inheritance"><dt>Extends</dt><dd>
 <div>ZCore.Object</div>
 <div><a class="xref" href="SlaveInfo.html">SlaveInfo</a></div>
 </dd></dl>
@@ -98,7 +98,7 @@
     <pre><code class="lang-st hljs">FUNCTION_BLOCK SlaveInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
 </code></pre></div>
 <h4 class="section">Outputs</h4><dl class="parameters">
-<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString<dd><p></p></dd><a name="PortArray"></a><dt><code>PortArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT<dd><p></p></dd></dl>
+<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString</dt><dd><p></p></dd><a name="PortArray"></a><dt><code>PortArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT</dt><dd><p></p></dd></dl>
 <h2 class="section" id="constructors">Constructor</h2>
 <h3 id="DeviceInfo.SlaveInfo_FB_init" data-uid="DeviceInfo.SlaveInfo.FB_init">
 FB_init
@@ -109,7 +109,7 @@ FB_init
  bInCopyCode : BOOL) : BOOL
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL<dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL<dd><p></p></dd></dl>
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><dd><p></p></dd></dl>
 <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>BOOL</dt>
@@ -146,8 +146,8 @@ the Array in VAR_OUTPUT of this object</p>
  deviceId : UDINT)
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID<dd><p><p>AMS-Netid of the IPC on which the Ethercat-Slave names should be fetched from a given Master DeviceID</p>
-</dd><a name="deviceId"></a><dt><code>deviceId</code> UDINT<dd><p><p>DeviceID of a Ethercat-Master from which all Ethercat-Slave names should be fetched</p>
+<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the Ethercat-Slave names should be fetched from a given Master DeviceID</p>
+</dd><a name="deviceId"></a><dt><code>deviceId</code> UDINT</dt><dd><p><p>DeviceID of a Ethercat-Master from which all Ethercat-Slave names should be fetched</p>
 </dd></dl>
 <h3 id="DeviceInfo.SlaveInfo_ResetMem" data-uid="DeviceInfo.SlaveInfo.ResetMem">
 ResetMem

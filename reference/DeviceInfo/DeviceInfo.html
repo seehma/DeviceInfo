@@ -87,7 +87,7 @@
     <dl><dt>Namespace</dt><dd><a class="xref" href="DeviceInfo.html">DeviceInfo</a></dd></dl>
   
   </div>
-<dl class="typelist inheritance"><dt>Inheritance</dt><dd>
+<dl class="typelist inheritance"><dt>Extends</dt><dd>
 <div>ZCore.Object</div>
 <div><a class="xref" href="DeviceInfo.html">DeviceInfo</a></div>
 </dd></dl>
@@ -98,7 +98,7 @@
     <pre><code class="lang-st hljs">FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
 </code></pre></div>
 <h4 class="section">Outputs</h4><dl class="parameters">
-<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString<dd><p></p></dd><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT<dd><p></p></dd><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID<dd><p></p></dd></dl>
+<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString</dt><dd><p></p></dd><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT</dt><dd><p></p></dd><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID</dt><dd><p></p></dd></dl>
 <h2 class="section" id="constructors">Constructor</h2>
 <h3 id="DeviceInfo.DeviceInfo_FB_init" data-uid="DeviceInfo.DeviceInfo.FB_init">
 FB_init
@@ -110,7 +110,7 @@ FB_init
  bInCopyCode : BOOL) : BOOL
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL<dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL<dd><p></p></dd></dl>
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><dd><p></p></dd></dl>
 <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>BOOL</dt>
@@ -150,7 +150,7 @@ the Array in VAR_OUTPUT of this object</p>
  amsNetId : Tc2_System.T_AmsNetID)
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID<dd><p><p>AMS-Netid of the IPC on which the device names should be fetched</p>
+<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the device names should be fetched</p>
 </dd></dl>
 <h3 id="DeviceInfo.DeviceInfo_ResetMem" data-uid="DeviceInfo.DeviceInfo.ResetMem">
 ResetMem
