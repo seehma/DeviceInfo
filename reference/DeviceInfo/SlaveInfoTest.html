@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>DeviceInfo | DeviceInfo </title>
+      <title>SlaveInfoTest | DeviceInfo </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="DeviceInfo | DeviceInfo ">
+      <meta name="title" content="SlaveInfoTest | DeviceInfo ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/seehma/DeviceInfo/blob/741da74e6c7b44c07c2efeedc5a440b6a6996592/doc/reference/DeviceInfo/DeviceInfo.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/seehma/DeviceInfo/blob/741da74e6c7b44c07c2efeedc5a440b6a6996592/doc/reference/DeviceInfo/SlaveInfoTest.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,87 +80,43 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="DeviceInfo.DeviceInfo">
-<h1 id="deviceinfo">DeviceInfo</h1>
+        <article data-uid="DeviceInfo.SlaveInfoTest">
+<h1 id="slaveinfotest">SlaveInfoTest</h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="DeviceInfo.html">DeviceInfo</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SlaveInfoTest.html">DeviceInfo</a></dd></dl>
   
   </div>
 <dl class="typelist inheritance"><dt>Extends</dt><dd>
 <div>ZCore.Object</div>
-<div><a class="xref" href="DeviceInfo.html">DeviceInfo</a></div>
+<div><a class="xref" href="SlaveInfo.html">DeviceInfo.SlaveInfo</a></div>
+<div><a class="xref" href="SlaveInfoTest.html">SlaveInfoTest</a></div>
+</dd></dl>
+<dl class="typelist implements"><dt>Inherited Methods</dt><dd>
+<div><a class="xref" href="SlaveInfo.html#ReadSlaveNamesAsync">ReadSlaveNamesAsync</a></div>
 </dd></dl>
 <dl class="typelist implements"><dt>Implements</dt><dd>
+<div>Testbench.IUnitTest</div>
 <div>ZCore.IUnmanagedObject</div>
 </dd></dl>
 <div class="codewrapper">
-    <pre><code class="lang-st hljs">FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
+    <pre><code class="lang-st hljs">FUNCTION_BLOCK SlaveInfoTest EXTENDS DeviceInfo.SlaveInfo IMPLEMENTS Testbench.IUnitTest, ZCore.IUnmanagedObject
 </code></pre></div>
-<h4 class="section">Outputs</h4><dl class="parameters">
-<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString</dt><dd><p></p></dd><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT</dt><dd><p></p></dd><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID</dt><dd><p></p></dd></dl>
-<h2 class="section" id="constructors">Constructor</h2>
-<h3 id="DeviceInfo.DeviceInfo_FB_init" data-uid="DeviceInfo.DeviceInfo.FB_init">
-FB_init
-</h3><a name="FB_init"></a>
-<p>Sets the object to Idle-State becuse no booting phase is needed here!</p>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD FB_init (
- bInitRetains : BOOL,
- bInCopyCode : BOOL) : BOOL
-</code></pre></div>
-<h4 class="section">Inputs</h4><dl class="parameters">
-<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><dd><p></p></dd></dl>
-<h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt>BOOL</dt>
-    <dd></dd>
-  </dl>
-<h2 class="section" id="properties">Properties</h2>
-<h3 id="DeviceInfo_DeviceInfo_EthercatMasterCount" data-uid="DeviceInfo.DeviceInfo.EthercatMasterCount">
-EthercatMasterCount
-</h3><a name="EthercatMasterCount"></a>
-<p>Returns the actual found Ethercat Master count -&gt; Needed to iterate through the VAR_INPUT Arrays of AMSNet-IDs and
-Ethercat Master Device names.</p>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">PROPERTY EthercatMasterCount : UINT
-</code></pre></div>
-<h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt>UINT</dt>
-    <dd></dd>
-  </dl>
 <h2 class="section" id="methods">Methods</h2>
-<h3 id="DeviceInfo.DeviceInfo_Cyclic" data-uid="DeviceInfo.DeviceInfo.Cyclic">
-Cyclic
-</h3><a name="Cyclic"></a>
+<h3 id="DeviceInfo.SlaveInfoTest_Test_ReadSlaveNamesAsync_CorrectValuesTaken" data-uid="DeviceInfo.SlaveInfoTest.Test_ReadSlaveNamesAsync_CorrectValuesTaken">
+Test_ReadSlaveNamesAsync_CorrectValuesTaken
+</h3><a name="Test_ReadSlaveNamesAsync_CorrectValuesTaken"></a>
 <div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD Cyclic ()
-</code></pre></div>
-<h3 id="DeviceInfo.DeviceInfo_ReadDeviceNamesAsync" data-uid="DeviceInfo.DeviceInfo.ReadDeviceNamesAsync">
-ReadDeviceNamesAsync
-</h3><a name="ReadDeviceNamesAsync"></a>
-<p>Starts reading of all available Ethercat-Master Device names
-Just wait until Busy property of this object returns FALSE -&gt; then fetch all Ethercat Master names from
-the Array in VAR_OUTPUT of this object</p>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD ReadDeviceNamesAsync (
- amsNetId : Tc2_System.T_AmsNetID)
+    <pre><code class="lang-st hljs">METHOD Test_ReadSlaveNamesAsync_CorrectValuesTaken (
+ assertions : Testbench.IAssertions)
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the device names should be fetched</p>
-</dd></dl>
-<h3 id="DeviceInfo.DeviceInfo_ResetMem" data-uid="DeviceInfo.DeviceInfo.ResetMem">
-ResetMem
-</h3><a name="ResetMem"></a>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD PRIVATE ResetMem ()
-</code></pre></div>
+<a name="assertions"></a><dt><code>assertions</code> Testbench.IAssertions</dt><dd><p></p></dd></dl>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/seehma/DeviceInfo/blob/741da74e6c7b44c07c2efeedc5a440b6a6996592/doc/reference/DeviceInfo/DeviceInfo.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/seehma/DeviceInfo/blob/741da74e6c7b44c07c2efeedc5a440b6a6996592/doc/reference/DeviceInfo/SlaveInfoTest.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

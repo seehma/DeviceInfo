@@ -19,3 +19,6 @@ references:
 - uid: DeviceInfo.SlaveInfoSteps
   name: SlaveInfoSteps
   href: reference/DeviceInfo/SlaveInfoSteps.html
+- uid: DeviceInfo.SlaveInfoTest
+  name: SlaveInfoTest
+  href: reference/DeviceInfo/SlaveInfoTest.html
