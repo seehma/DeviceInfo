@@ -114,16 +114,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/Parameter.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/Parameter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "reference/DeviceInfo/SlaveInfo.md",
       "output": {
         ".html": {
@@ -138,16 +128,6 @@
       "output": {
         ".html": {
           "relative_path": "reference/DeviceInfo/SlaveInfoSteps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/SlaveInfoTest.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/SlaveInfoTest.html"
         }
       },
       "version": ""
@@ -197,16 +177,6 @@
       "output": {
         ".html": {
           "relative_path": "userguide/installation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "userguide/introduction.md",
-      "output": {
-        ".html": {
-          "relative_path": "userguide/introduction.html"
         }
       },
       "version": ""

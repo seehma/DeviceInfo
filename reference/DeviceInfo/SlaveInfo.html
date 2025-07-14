@@ -95,21 +95,23 @@
 <div>ZCore.IUnmanagedObject</div>
 </dd></dl>
 <div class="codewrapper">
-    <pre><code class="lang-st hljs">FUNCTION_BLOCK SlaveInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
-</code></pre></div>
+    <pre><code class="lang-st hljs">FUNCTION_BLOCK SlaveInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject (
+ [output] NameArray : ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString,
+ [output] PortArray : ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT)
+<p></p></code></pre></div>
 <h4 class="section">Outputs</h4><dl class="parameters">
-<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString</dt><dd><p></p></dd><a name="PortArray"></a><dt><code>PortArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT</dt><dd><p></p></dd></dl>
+<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF ZCore.ZString</dt><a name="PortArray"></a><dt><code>PortArray</code> ARRAY[0..Parameter.MaxSlavesToBeFound] OF UINT</dt></dl>
 <h2 class="section" id="constructors">Constructor</h2>
-<h3 id="DeviceInfo.SlaveInfo_FB_init" data-uid="DeviceInfo.SlaveInfo.FB_init">
+<h3 id="DeviceInfo_SlaveInfo_FB_init" data-uid="DeviceInfo.SlaveInfo.FB_init">
 FB_init
 </h3><a name="FB_init"></a>
 <div class="codewrapper">
     <pre><code class="lang-st hljs">METHOD FB_init (
- bInitRetains : BOOL,
- bInCopyCode : BOOL) : BOOL
+ [input] bInitRetains : BOOL,
+ [input] bInCopyCode : BOOL) : BOOL
 </code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><dd><p></p></dd></dl>
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt></dl>
 <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>BOOL</dt>
@@ -128,28 +130,28 @@ EthercatSlavesCount
     <dd></dd>
   </dl>
 <h2 class="section" id="methods">Methods</h2>
-<h3 id="DeviceInfo.SlaveInfo_Cyclic" data-uid="DeviceInfo.SlaveInfo.Cyclic">
+<h3 id="DeviceInfo_SlaveInfo_Cyclic" data-uid="DeviceInfo.SlaveInfo.Cyclic">
 Cyclic
 </h3><a name="Cyclic"></a>
 <div class="codewrapper">
     <pre><code class="lang-st hljs">METHOD Cyclic ()
 </code></pre></div>
-<h3 id="DeviceInfo.SlaveInfo_ReadSlaveNamesAsync" data-uid="DeviceInfo.SlaveInfo.ReadSlaveNamesAsync">
+<h3 id="DeviceInfo_SlaveInfo_ReadSlaveNamesAsync" data-uid="DeviceInfo.SlaveInfo.ReadSlaveNamesAsync">
 ReadSlaveNamesAsync
 </h3><a name="ReadSlaveNamesAsync"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD ReadSlaveNamesAsync (
+ [input] amsNetId : Tc2_System.T_AmsNetID,
+ [input] deviceId : UDINT)
+</code></pre></div>
 <p>Starts reading of all available Ethercat-Slave Box names for a given DeviceId/Ethercat-Master
 Just wait until Busy property of this object returns FALSE (or the object is DONE=TRUE) -&gt; then fetch all Ethercat Slave names from
 the Array in VAR_OUTPUT of this object</p>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD ReadSlaveNamesAsync (
- amsNetId : Tc2_System.T_AmsNetID,
- deviceId : UDINT)
-</code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
 <a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the Ethercat-Slave names should be fetched from a given Master DeviceID</p>
 </dd><a name="deviceId"></a><dt><code>deviceId</code> UDINT</dt><dd><p><p>DeviceID of a Ethercat-Master from which all Ethercat-Slave names should be fetched</p>
 </dd></dl>
-<h3 id="DeviceInfo.SlaveInfo_ResetMem" data-uid="DeviceInfo.SlaveInfo.ResetMem">
+<h3 id="DeviceInfo_SlaveInfo_ResetMem" data-uid="DeviceInfo.SlaveInfo.ResetMem">
 ResetMem
 </h3><a name="ResetMem"></a>
 <div class="codewrapper">

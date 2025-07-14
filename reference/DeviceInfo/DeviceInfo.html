@@ -95,22 +95,25 @@
 <div>ZCore.IUnmanagedObject</div>
 </dd></dl>
 <div class="codewrapper">
-    <pre><code class="lang-st hljs">FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
-</code></pre></div>
+    <pre><code class="lang-st hljs">FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject (
+ [output] NameArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString,
+ [output] DeviceIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT,
+ [output] NetIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID)
+<p></p></code></pre></div>
 <h4 class="section">Outputs</h4><dl class="parameters">
-<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString</dt><dd><p></p></dd><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT</dt><dd><p></p></dd><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID</dt><dd><p></p></dd></dl>
+<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString</dt><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT</dt><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID</dt></dl>
 <h2 class="section" id="constructors">Constructor</h2>
-<h3 id="DeviceInfo.DeviceInfo_FB_init" data-uid="DeviceInfo.DeviceInfo.FB_init">
+<h3 id="DeviceInfo_DeviceInfo_FB_init" data-uid="DeviceInfo.DeviceInfo.FB_init">
 FB_init
 </h3><a name="FB_init"></a>
-<p>Sets the object to Idle-State becuse no booting phase is needed here!</p>
 <div class="codewrapper">
     <pre><code class="lang-st hljs">METHOD FB_init (
- bInitRetains : BOOL,
- bInCopyCode : BOOL) : BOOL
+ [input] bInitRetains : BOOL,
+ [input] bInCopyCode : BOOL) : BOOL
 </code></pre></div>
+<p>Sets the object to Idle-State becuse no booting phase is needed here!</p>
 <h4 class="section">Inputs</h4><dl class="parameters">
-<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><dd><p></p></dd><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><dd><p></p></dd></dl>
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt></dl>
 <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>BOOL</dt>
@@ -120,37 +123,37 @@ FB_init
 <h3 id="DeviceInfo_DeviceInfo_EthercatMasterCount" data-uid="DeviceInfo.DeviceInfo.EthercatMasterCount">
 EthercatMasterCount
 </h3><a name="EthercatMasterCount"></a>
-<p>Returns the actual found Ethercat Master count -&gt; Needed to iterate through the VAR_INPUT Arrays of AMSNet-IDs and
-Ethercat Master Device names.</p>
 <div class="codewrapper">
     <pre><code class="lang-st hljs">PROPERTY EthercatMasterCount : UINT
 </code></pre></div>
+<p>Returns the actual found Ethercat Master count -&gt; Needed to iterate through the VAR_INPUT Arrays of AMSNet-IDs and
+Ethercat Master Device names.</p>
 <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt>UINT</dt>
     <dd></dd>
   </dl>
 <h2 class="section" id="methods">Methods</h2>
-<h3 id="DeviceInfo.DeviceInfo_Cyclic" data-uid="DeviceInfo.DeviceInfo.Cyclic">
+<h3 id="DeviceInfo_DeviceInfo_Cyclic" data-uid="DeviceInfo.DeviceInfo.Cyclic">
 Cyclic
 </h3><a name="Cyclic"></a>
 <div class="codewrapper">
     <pre><code class="lang-st hljs">METHOD Cyclic ()
 </code></pre></div>
-<h3 id="DeviceInfo.DeviceInfo_ReadDeviceNamesAsync" data-uid="DeviceInfo.DeviceInfo.ReadDeviceNamesAsync">
+<h3 id="DeviceInfo_DeviceInfo_ReadDeviceNamesAsync" data-uid="DeviceInfo.DeviceInfo.ReadDeviceNamesAsync">
 ReadDeviceNamesAsync
 </h3><a name="ReadDeviceNamesAsync"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD ReadDeviceNamesAsync (
+ [input] amsNetId : Tc2_System.T_AmsNetID)
+</code></pre></div>
 <p>Starts reading of all available Ethercat-Master Device names
 Just wait until Busy property of this object returns FALSE -&gt; then fetch all Ethercat Master names from
 the Array in VAR_OUTPUT of this object</p>
-<div class="codewrapper">
-    <pre><code class="lang-st hljs">METHOD ReadDeviceNamesAsync (
- amsNetId : Tc2_System.T_AmsNetID)
-</code></pre></div>
 <h4 class="section">Inputs</h4><dl class="parameters">
 <a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the device names should be fetched</p>
 </dd></dl>
-<h3 id="DeviceInfo.DeviceInfo_ResetMem" data-uid="DeviceInfo.DeviceInfo.ResetMem">
+<h3 id="DeviceInfo_DeviceInfo_ResetMem" data-uid="DeviceInfo.DeviceInfo.ResetMem">
 ResetMem
 </h3><a name="ResetMem"></a>
 <div class="codewrapper">
