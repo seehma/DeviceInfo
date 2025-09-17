@@ -7,7 +7,7 @@
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>GetDeviceData</Name>
+    <Name>DeviceInfo</Name>
     <ProgramVersion>3.1.4026.12</ProgramVersion>
     <Application>{0a63b9a3-79d0-4634-8bae-392cbab09496}</Application>
     <TypeSystem>{5e3bfbd1-614b-4202-9799-e975c6b02a16}</TypeSystem>
