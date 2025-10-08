@@ -83,82 +83,6 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/DeviceInfo.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/DeviceInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/DeviceInfoSteps.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/DeviceInfoSteps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/SlaveInfo.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/SlaveInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "reference/DeviceInfo/SlaveInfoSteps.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/SlaveInfoSteps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "reference/DeviceInfo/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "reference/DeviceInfo/toc.html"
-        },
-        ".json": {
-          "relative_path": "reference/DeviceInfo/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "reference/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "reference/toc.html"
-        },
-        ".json": {
-          "relative_path": "reference/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
@@ -177,16 +101,6 @@
       "output": {
         ".html": {
           "relative_path": "userguide/installation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "userguide/introduction.md",
-      "output": {
-        ".html": {
-          "relative_path": "userguide/introduction.html"
         }
       },
       "version": ""
