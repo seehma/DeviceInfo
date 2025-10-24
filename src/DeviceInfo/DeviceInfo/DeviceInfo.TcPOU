@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="DeviceInfo" Id="{bbbb3437-c728-49f1-b8eb-fac3c161592d}" SpecialFunc="None">
-    <Declaration><![CDATA[{attribute 'no_explicit_call'}
+    <Declaration><![CDATA[/// Testdoc
+{attribute 'no_explicit_call'}
 {attribute 'conditionalshow_all_locals'}
 FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject
 VAR_OUTPUT
