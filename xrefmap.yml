@@ -1,3 +1,18 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: DeviceInfo
+  name: DeviceInfo
+  href: reference/DeviceInfo.html
+- uid: DeviceInfo.DeviceInfo
+  name: DeviceInfo
+  href: reference/DeviceInfo/DeviceInfo.html
+- uid: DeviceInfo.DeviceInfoSteps
+  name: DeviceInfoSteps
+  href: reference/DeviceInfo/DeviceInfoSteps.html
+- uid: DeviceInfo.SlaveInfo
+  name: SlaveInfo
+  href: reference/DeviceInfo/SlaveInfo.html
+- uid: DeviceInfo.SlaveInfoSteps
+  name: SlaveInfoSteps
+  href: reference/DeviceInfo/SlaveInfoSteps.html

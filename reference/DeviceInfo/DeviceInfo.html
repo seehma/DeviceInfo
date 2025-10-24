@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DeviceInfo | DeviceInfo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DeviceInfo | DeviceInfo ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/seehma/DeviceInfo/blob/5f89090d88988aa36c99c4c4cb672cbe6d4aecf8/doc/reference/DeviceInfo/DeviceInfo.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="DeviceInfo.DeviceInfo">
+<h1 id="deviceinfo">DeviceInfo</h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="DeviceInfo.html">DeviceInfo</a></dd></dl>
+  
+  </div>
+<dl class="typelist inheritance"><dt>Extends</dt><dd>
+<div>ZCore.Object</div>
+<div><a class="xref" href="DeviceInfo.html">DeviceInfo</a></div>
+</dd></dl>
+<dl class="typelist implements"><dt>Implements</dt><dd>
+<div>ZCore.IUnmanagedObject</div>
+</dd></dl>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">FUNCTION_BLOCK DeviceInfo EXTENDS ZCore.Object IMPLEMENTS ZCore.IUnmanagedObject (
+ [output] NameArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString,
+ [output] DeviceIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT,
+ [output] NetIdArray : ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID)
+<p></p></code></pre></div>
+<h4 class="section">Outputs</h4><dl class="parameters">
+<a name="NameArray"></a><dt><code>NameArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF ZCore.ZString</dt><a name="DeviceIdArray"></a><dt><code>DeviceIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF UDINT</dt><a name="NetIdArray"></a><dt><code>NetIdArray</code> ARRAY[0..Parameter.MaxDeviceToBeFound] OF Tc2_System.T_AmsNetID</dt></dl>
+<h2 class="section" id="constructors">Constructor</h2>
+<h3 id="DeviceInfo_DeviceInfo_FB_init" data-uid="DeviceInfo.DeviceInfo.FB_init">
+FB_init
+</h3><a name="FB_init"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD FB_init (
+ [input] bInitRetains : BOOL,
+ [input] bInCopyCode : BOOL) : BOOL
+</code></pre></div>
+<p>Sets the object to Idle-State becuse no booting phase is needed here!</p>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt></dl>
+<h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>BOOL</dt>
+    <dd></dd>
+  </dl>
+<h2 class="section" id="properties">Properties</h2>
+<h3 id="DeviceInfo_DeviceInfo_EthercatMasterCount" data-uid="DeviceInfo.DeviceInfo.EthercatMasterCount">
+EthercatMasterCount
+</h3><a name="EthercatMasterCount"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">PROPERTY EthercatMasterCount : UINT
+</code></pre></div>
+<p>Returns the actual found Ethercat Master count -&gt; Needed to iterate through the VAR_INPUT Arrays of AMSNet-IDs and
+Ethercat Master Device names.</p>
+<h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>UINT</dt>
+    <dd></dd>
+  </dl>
+<h2 class="section" id="methods">Methods</h2>
+<h3 id="DeviceInfo_DeviceInfo_Cyclic" data-uid="DeviceInfo.DeviceInfo.Cyclic">
+Cyclic
+</h3><a name="Cyclic"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD Cyclic ()
+</code></pre></div>
+<p>The cyclic method should be run in any PLC-cycle. If the object has no work to do, we will simply
+RETURN here. If an action has been started, this cyclic method takes care of all the work to do.</p>
+<h3 id="DeviceInfo_DeviceInfo_ReadDeviceNamesAsync" data-uid="DeviceInfo.DeviceInfo.ReadDeviceNamesAsync">
+ReadDeviceNamesAsync
+</h3><a name="ReadDeviceNamesAsync"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD ReadDeviceNamesAsync (
+ [input] amsNetId : Tc2_System.T_AmsNetID)
+</code></pre></div>
+<p>Starts reading of all available Ethercat-Master Device names
+Just wait until Busy property of this object returns FALSE -&gt; then fetch all Ethercat Master names from
+the Array in VAR_OUTPUT of this object</p>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="amsNetId"></a><dt><code>amsNetId</code> Tc2_System.T_AmsNetID</dt><dd><p><p>AMS-Netid of the IPC on which the device names should be fetched</p>
+</dd></dl>
+<h3 id="DeviceInfo_DeviceInfo_ResetMem" data-uid="DeviceInfo.DeviceInfo.ResetMem">
+ResetMem
+</h3><a name="ResetMem"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PRIVATE ResetMem ()
+</code></pre></div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/seehma/DeviceInfo/blob/5f89090d88988aa36c99c4c4cb672cbe6d4aecf8/doc/reference/DeviceInfo/DeviceInfo.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Documentation powered by <a href="https://github.com/Zeugwerk/zkdoc-action">zkdoc</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
