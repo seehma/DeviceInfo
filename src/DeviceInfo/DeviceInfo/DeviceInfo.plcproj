@@ -8,7 +8,7 @@
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>DeviceInfo</Name>
-    <ProgramVersion>3.1.4026.12</ProgramVersion>
+    <ProgramVersion>3.1.4026.19</ProgramVersion>
     <Application>{0a63b9a3-79d0-4634-8bae-392cbab09496}</Application>
     <TypeSystem>{5e3bfbd1-614b-4202-9799-e975c6b02a16}</TypeSystem>
     <Implicit_Task_Info>{49fd5251-bcd0-4385-992d-ad3b7e90b3b6}</Implicit_Task_Info>
