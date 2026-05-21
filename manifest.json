@@ -114,6 +114,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "reference/DeviceInfo/Parameter.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/DeviceInfo/Parameter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "reference/DeviceInfo/SlaveInfo.md",
       "output": {
         ".html": {

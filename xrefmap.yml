@@ -10,6 +10,9 @@ references:
 - uid: DeviceInfo.DeviceInfoSteps
   name: DeviceInfoSteps
   href: reference/DeviceInfo/DeviceInfoSteps.html
+- uid: DeviceInfo.Parameter
+  name: Parameter
+  href: reference/DeviceInfo/Parameter.html
 - uid: DeviceInfo.SlaveInfo
   name: SlaveInfo
   href: reference/DeviceInfo/SlaveInfo.html
