@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        uses: Zeugwerk/zkbuild-action@v1.11.112
+        uses: Zeugwerk/zkbuild-action@v1.10.18
         with:
           username: ${{ secrets.ACTIONS_ZGWK_USERNAME }}
           password: ${{ secrets.ACTIONS_ZGWK_PASSWORD }}
